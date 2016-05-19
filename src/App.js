@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import TodoList from './TodoList';
+import todos from './todos';
 
 export default class App extends Component {
     render() {
         return (
-            <h1>Hello, world.</h1>
+            <div>
+                <h1>Todo List.</h1>
+
+                <TodoList todos={todos} />
+            </div>
         );
     }
 }
