@@ -1,15 +1,18 @@
 import React, { Component, PropTypes } from 'react';
+import {observer} from 'mobx-react';
 import Todo from './Todo';
 
+@observer
 class TodoList extends Component {
     render () {
-        console.log(this.props.todos);
+
+        if(!this.props.todos) {
+            return null;
+        }
 
         return (
             <ul>
-
-                { this.props.todos.map( todo => <Todo todo={todo} /> ) }
-
+                { this.props.todos.map((todo, index) => <Todo key={index} todo={todo} /> ) }
             </ul>
         )
     }

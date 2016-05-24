@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
+import {observer} from 'mobx-react';
 import TodoList from './TodoList';
-import todos from './todos';
+import DevTools from 'mobx-react-devtools';
 
-export default class App extends Component {
+@observer
+class App extends Component {
     render() {
         return (
             <div>
-                <h1>Todo List.</h1>
+                <DevTools />
 
-                <TodoList todos={todos} />
+                <h1>Todo List.</h1>
+                <TodoList todos={this.props.store.todos} />
+                <button onClick={ this.newTodo }>New Todo</button>
             </div>
         );
     }
+
+    newTodo = () => {
+        let task = prompt('Enter a new todo:', '');
+
+        if (task) {
+            this.props.store.addTodo(task);
+        }
+
+        return false;
+    }
 }
+
+export default App;
