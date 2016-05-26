@@ -4,10 +4,15 @@ class Todo extends Component {
     render () {
         return (
             <li>
-                <input type='checkbox' />
+                <input type='checkbox' onChange={this.handleChange} />
                 { this.props.todo.title }
             </li>
         )
+    }
+
+    handleChange = () => {
+        const { todo, toggleCompleted } = this.props;
+        toggleCompleted(todo);
     }
 }
 

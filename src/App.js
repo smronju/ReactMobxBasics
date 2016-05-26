@@ -6,12 +6,16 @@ import DevTools from 'mobx-react-devtools';
 @observer
 class App extends Component {
     render() {
+
+        const { todos, toggleCompleted, completedTodosCount } = this.props.store;
+
         return (
             <div>
                 <DevTools />
 
                 <h1>Todo List.</h1>
-                <TodoList todos={this.props.store.todos} />
+                <h5>Completed: { completedTodosCount }</h5>
+                <TodoList todos={ todos } toggleCompleted={toggleCompleted} />
                 <button onClick={ this.newTodo }>New Todo</button>
             </div>
         );
