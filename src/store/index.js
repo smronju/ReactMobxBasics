@@ -11,8 +11,13 @@ class AppState {
     }
 
     toggleCompleted = (todo) => {
-        console.log(todo.title);
         todo.completed = !todo.completed;
+    }
+
+    editTodo = (todo, title) => {
+        console.log(todo);
+        console.log(title);
+        todo.title = title;
     }
 
     @computed get completedTodosCount() {

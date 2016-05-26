@@ -6,7 +6,7 @@ import Todo from './Todo';
 class TodoList extends Component {
     render () {
 
-        const { todos, toggleCompleted } = this.props;
+        const { todos, editTodo, toggleCompleted } = this.props;
 
         if(!todos) {
             return null;
@@ -14,7 +14,16 @@ class TodoList extends Component {
 
         return (
             <ul>
-                { todos.map((todo, index) => <Todo key={index} todo={todo} toggleCompleted={toggleCompleted} /> ) }
+                {
+                    todos.map ((todo, index) => {
+                        return <Todo
+                            key={index}
+                            todo={todo}
+                            editTodo={editTodo}
+                            toggleCompleted={toggleCompleted}
+                        />;
+                    })
+                }
             </ul>
         )
     }
