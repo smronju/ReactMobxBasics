@@ -6,7 +6,7 @@ import Todo from './Todo';
 class TodoList extends Component {
     render () {
 
-        const { todos, editTodo, toggleCompleted } = this.props;
+        const { todos, editTodo, removeTodo, toggleCompleted } = this.props;
 
         if(!todos) {
             return null;
@@ -20,6 +20,7 @@ class TodoList extends Component {
                             key={index}
                             todo={todo}
                             editTodo={editTodo}
+                            removeTodo={removeTodo}
                             toggleCompleted={toggleCompleted}
                         />;
                     })
