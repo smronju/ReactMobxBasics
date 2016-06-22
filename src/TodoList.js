@@ -13,7 +13,7 @@ class TodoList extends Component {
         }
 
         return (
-            <ul>
+            <ul className="list-group" style={style.list}>
                 {
                     todos.map ((todo, index) => {
                         return <Todo
@@ -27,6 +27,12 @@ class TodoList extends Component {
                 }
             </ul>
         )
+    }
+}
+
+const style = {
+    list: {
+        marginTop: '20px'
     }
 }
 

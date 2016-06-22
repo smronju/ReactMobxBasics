@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import {observer} from 'mobx-react';
+import { observer } from 'mobx-react';
+import { Checkbox } from 'react-bootstrap';
 
 @observer
 class Todo extends Component {
@@ -8,10 +9,10 @@ class Todo extends Component {
         const { todo } = this.props;
 
         return (
-            <li onDoubleClick={this.renameTodo}>
-                <input type='checkbox' onChange={this.handleChange} checked={todo.completed ? 'checked' : ''} />
-                <span>{ todo.title }</span>
-                <a href="javascript:void(0)" onClick={this.deleteTodo}> remove</a>
+            <li className="list-group-item" onDoubleClick={this.renameTodo}>
+                <input type='checkbox' onChange={this.handleChange} checked={todo.completed ? 'checked' : ''} style={style.checkbox} />
+                { todo.title }
+                <span className="pull-right" onClick={this.deleteTodo}>x</span>
             </li>
         )
     }
@@ -32,6 +33,13 @@ class Todo extends Component {
         const { todo, removeTodo } = this.props;
         removeTodo(todo.id);
     }
+}
+
+const style = {
+    checkbox: {
+        marginRight: '10px'
+    }
+
 }
 
 export default Todo;
