@@ -32,24 +32,6 @@ class App extends Component {
                     </Col>
                 </Row>
             </Grid>
-
-
-
-
-
-            /*<div>
-
-
-                <h1>Todo List.</h1>
-
-                <h3>Completed: { completedTodosCount }</h3>
-
-                <TodoList todos={ todos } editTodo={editTodo} removeTodo={removeTodo} toggleCompleted={toggleCompleted} />
-
-                <p>Double click to edit</p>
-
-                <button onClick={ this.newTodo }>New Todo</button>
-            </div>*/
         );
     }
 
